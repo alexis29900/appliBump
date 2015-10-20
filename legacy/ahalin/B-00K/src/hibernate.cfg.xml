@@ -1,0 +1,35 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+     "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+
+		<!-- Paramètres de connexion à la base de données -->
+
+		<property name="hibernate.connection.driver_class">org.h2.Driver</property>
+		<property name="hibernate.connection.url">jdbc:h2:~/bdd_b00k;IFEXISTS=TRUE;AUTO_SERVER=TRUE</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.H2Dialect</property>
+
+
+		<!-- Comportement pour la conservation des tables -->
+		<property name="hbm2ddl.auto">update</property>
+		
+		
+		<!-- Entitées à mapper -->
+		<mapping class="com.book.entities.Client" />
+		<mapping class="com.book.entities.Commande" />
+		<mapping class="com.book.entities.Detail" />
+		<mapping class="com.book.entities.Livre" />
+		<mapping class="com.book.entities.Specificite" />
+		<mapping class="com.book.entities.Budget" />
+
+		<!-- Affiche les logs SQL -->
+		<!-- <property name="show_sql">true</property> -->
+		<!-- <property name="hibernate.format_sql">true</property> -->
+		<!-- <property name="use_sql_comments">true</property> -->
+
+	</session-factory>
+</hibernate-configuration>

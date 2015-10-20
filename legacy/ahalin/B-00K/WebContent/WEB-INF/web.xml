@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+
+
+	<servlet>
+		<servlet-name>livre</servlet-name>
+		<servlet-class>com.book.servlets.livre</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>livre</servlet-name>
+		<url-pattern> /livre </url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>validation</servlet-name>
+		<servlet-class>com.book.servlets.validation</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>validation</servlet-name>
+		<url-pattern> /validation </url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet>
+		<servlet-name>commande</servlet-name>
+		<servlet-class>com.book.servlets.commande</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>commande</servlet-name>
+		<url-pattern> /commande </url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet>
+		<servlet-name>accueil</servlet-name>
+		<servlet-class>com.book.servlets.accueil</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>accueil</servlet-name>
+		<url-pattern> /accueil </url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet>
+		<servlet-name>gestion</servlet-name>
+		<servlet-class>com.book.servlets.gestion</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>gestion</servlet-name>
+		<url-pattern> /gestion </url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	<servlet>
+		<servlet-name> traitementCommande </servlet-name>
+		<servlet-class> com.book.servlets.traitementCommande </servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name> traitementCommande </servlet-name>
+		<url-pattern> /traitementCommande </url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	<resource-ref>
+		<description> Server Mail </description>
+		<res-ref-name>mail/Commande</res-ref-name>
+		<res-type>javax.mail.Session</res-type>
+		<res-auth>Container</res-auth>
+		<res-sharing-scope>Shareable</res-sharing-scope>
+	</resource-ref>
+	
+</web-app>

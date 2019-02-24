@@ -27,8 +27,8 @@ import com.book.entities.Specificite;
 public class Mail
 {
 	// Data of email notification.
-	public static final String FROM = "aegolir@gmail.com";
-	public static final String RECIPIENT = "aegolir@gmail.com";
+	public static final String FROM = "bumpbibli@gmail.com";
+	public static final String RECIPIENT = "bumpbibli@gmail.com";
 	public static final String SUBJECT = "[B-00K] Nouvelle Commande";
 	
 	
@@ -41,8 +41,8 @@ public class Mail
 	private static Session getSession()
 	{
 		// Username and password of gmail account.
-		final String username = "aegolir@gmail.com";
-		final String password = "AZF56xvd87LH6";
+		final String username = "bumpbibli@gmail.com";
+		final String password = "Indianhunk01";
  
 		// Properties of the session.
 		Properties props = new Properties();

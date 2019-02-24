@@ -1,6 +1,7 @@
 package com.book.groovy
 
 import com.book.entities.Livre;
+import groovy.json.JsonSlurper
 
 
 /**
@@ -60,26 +61,24 @@ class trouverLivre
 	 */
 	public static Livre trouverISBNDB (String isbn)
 	{
-		def  baseURL = "http://isbndb.com/api/v2/"
-		def  ACCESS_KEY = "36IS2PNU"
-		
-		def queryParams = []
-		queryParams << "xml"
-		queryParams << "$ACCESS_KEY"
-		queryParams << "book"
-		queryParams << "$isbn"
-		
-		def queryString = queryParams.join("/")
-		def completeApiURl = "$baseURL$queryString"
-		def apiResponse = new URL(completeApiURl).text
-		def xmlSlurper = new XmlSlurper()
-		def parsedXml = xmlSlurper.parseText(apiResponse)
-		
-		def newBook = new Livre(isbn10: parsedXml.data.isbn10,
-								isbn13: parsedXml.data.isbn13,
-								titre: parsedXml.data.title,
-								auteurs: parsedXml.data.author_data.name,
-								editeur: parsedXml.data.publisher_name,
+		def  baseURL = "https://api.isbndb.com/book/"
+		def  ACCESS_KEY = "hSaxMghEkuydI5zm9ULa3tnDigXaOcl7hnjGg8cc"
+		def completeUrl=baseURL+isbn
+def connection = new URL(completeUrl)
+        .openConnection() as HttpURLConnection
+
+// set some headers
+connection.setRequestProperty( 'User-Agent', 'groovy-2.4.4' )
+connection.setRequestProperty( 'X-API-KEY', 'hSaxMghEkuydI5zm9ULa3tnDigXaOcl7hnjGg8cc' )
+def response=connection.inputStream.text
+def jsonSlurper = new JsonSlurper()
+def object = jsonSlurper.parseText(response)
+// get the response code - automatically sends the request
+	def newBook = new Livre(isbn10: object.book.isbn,
+								isbn13: object.book.isbn13,
+								titre: object.book.title,
+								auteurs:object.book.authors,
+								editeur: object.book.publisher,
 								url: new String())
 					
 		return newBook

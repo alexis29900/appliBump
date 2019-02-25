@@ -1,5 +1,20 @@
 @CHARSET "UTF-8";
-
+table
+{
+	background-color: green;
+}
+.td1
+{
+	background-color: green;
+}
+.td2
+{
+	background-color: red;
+}
+.td3
+{
+	background-color: blue;
+}
 body {
 	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
 	background-color: #42413C;

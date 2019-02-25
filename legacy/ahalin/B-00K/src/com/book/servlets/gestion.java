@@ -85,6 +85,9 @@ public class gestion extends HttpServlet
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		List listeCommandes = HibernateUtils.selectAll("Commande");
+		System.out.println("begin");
+		System.out.println(listeCommandes);
+		System.out.println("end");
 		List listeClients = HibernateUtils.selectAll("Client");
 		List listeDetails = HibernateUtils.selectAll("Detail");
 		List listeSpecificites = HibernateUtils.selectAll("Specificite");

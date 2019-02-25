@@ -1,6 +1,7 @@
 package com.book.servlets;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -36,7 +37,7 @@ public class budget extends HttpServlet
 		Budget h=b.getLastBudget();
 		request.getSession().setAttribute(ATT_BUDGET, h);
 		System.out.println(b.getLastBudget());
-		Budget[] i=b.getBudget();
+		List i= HibernateUtils.selectAll("Budget");
 		request.getSession().setAttribute(ATT_BUDGET_ARRAY, i);
 		HibernateUtils.initDB();
 			this.getServletContext().getRequestDispatcher(VUE1).forward(request, response);

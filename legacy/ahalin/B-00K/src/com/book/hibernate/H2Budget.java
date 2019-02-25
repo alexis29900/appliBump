@@ -10,13 +10,14 @@ import org.hibernate.Session;
 
 import com.book.entities.Budget;
 
-
+import java.text.SimpleDateFormat;  
+import java.util.Date;  
 public class H2Budget {
-	public static Budget[] getBudget()
+	public static List getBudget()
 	{
 		Connection connection = null;
 		Statement statement = null;
-		
+		List<Budget> liste=null;
 		try
 		{
 
@@ -24,37 +25,26 @@ public class H2Budget {
 
     		Query query = s.createQuery("FROM Budget"); 
     		
-    		List<Budget> liste = query.list();
+    		liste = query.list();
     		for (Budget e : liste) {
     			System.out.println(e.toString());
     		}
     		
-    		return null;
-       
+
+    		return liste;
+
 		}
 		catch (Exception e)
 		{
 			e.printStackTrace();
 		}
-		finally
-		{
-			try
-			{
-				statement.close();
-				connection.close();
-			}
-			catch (Exception e)
-			{
-				e.printStackTrace();
-			}
-		}
-		return null;
+return liste;
+		
 		
 	}
 	public static Budget getLastBudget()
 	{
-		Connection connection = null;
-		Statement statement = null;
+		Budget b=null;
 		
 		try
 		{
@@ -64,9 +54,9 @@ public class H2Budget {
     		Query query = s.createQuery("select montant FROM Budget order by id desc limit 1"); 
     		
     		List liste = query.list();
-    		Budget b=new Budget();
+    		b=new Budget();
     		b.setMontant((Integer) liste.get(0));
-    		return b;
+    		
 
        
 		}
@@ -74,19 +64,8 @@ public class H2Budget {
 		{
 			e.printStackTrace();
 		}
-		finally
-		{
-			try
-			{
-				statement.close();
-				connection.close();
-			}
-			catch (Exception e)
-			{
-				e.printStackTrace();
-			}
-		}
-		return null;
+
+		return b;
 	}
 	
 	public static void insertBudget(Budget budget)
@@ -96,11 +75,13 @@ public class H2Budget {
 		
 		try
 		{
+			  SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+			    Date date = new Date();  
 			
 			Class.forName("org.h2.Driver");  
         	connection = DriverManager.getConnection("jdbc:h2:~/bdd_b00k;IFEXISTS=TRUE", "root", "root");  
             statement = connection.createStatement();  
-            statement.executeUpdate("insert into budget (Montant,Date) values ("+budget.getMontant().toString() + ",'" + budget.getDate().toString()+"')");
+            statement.executeUpdate("insert into budget (Montant,Date) values ("+budget.getMontant().toString() + ",'" +date.toString()+"')");
             
        
 		}
@@ -108,17 +89,6 @@ public class H2Budget {
 		{
 			e.printStackTrace();
 		}
-		finally
-		{
-			try
-			{
-				statement.close();
-				connection.close();
-			}
-			catch (Exception e)
-			{
-				e.printStackTrace();
-			}
-		}
+
 	}
 }

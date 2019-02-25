@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%String path = application.getRealPath("/");%>
 
 <!DOCTYPE html5>
 
@@ -10,6 +11,7 @@
 		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
 		<title>Gestion des commandes</title>
 		<link type="text/css" rel="stylesheet" href="style/accueil.css" />
+		
 	</head>
 
 	<body>
@@ -32,7 +34,7 @@
 				<h1>Gestion des commandes</h1>
 				<section>
 				
-					<TABLE BORDER="1" >  
+					<TABLE BORDER="1" class="table" >  
 		
 						<%-- Print the titles of the columns --%>
 						<TR>	
@@ -53,7 +55,17 @@
 
 						<%-- Print the data --%>
 						<c:forEach var="commande" items="${listeCommandes}">
-							<TR> 	
+				  				<c:set var = "valide" scope = "session" value = "${commande.getEtat()}"/>
+								 <c:if test="${valide=='Validee'}">
+								 <TR class="td1"> 	
+								 </c:if>
+								  <c:if test="${valide=='Refusee'}">
+								 <TR class="td2"> 	
+								 </c:if>
+								  <c:if test="${valide=='En attente'}">
+								 <TR class="td3"> 	
+								 </c:if>
+					
 								<td> <c:out value="${commande.getIdCommande() }"/> </td>
 							
 								<%-- Customer data --%>

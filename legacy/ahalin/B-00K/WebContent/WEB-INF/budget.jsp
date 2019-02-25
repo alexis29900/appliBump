@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +47,7 @@
 						<TR>	
  							<TH> Montant </TH> 
 
- 							
+ 							<TH> Date </TH> 
  							
 						</TR> 
 		
@@ -56,7 +56,7 @@
 						<c:forEach var="budgetelm" items="${budgetA}">
 							<TR> 	
 								<td> <c:out value="${budgetelm.montant}"/> </td>
-							
+								<td> <c:out value="${budgetelm.date}"/> </td>
 
 
       					

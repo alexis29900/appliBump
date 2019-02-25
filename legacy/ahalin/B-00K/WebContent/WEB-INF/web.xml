@@ -15,7 +15,14 @@
 		<url-pattern> /livre </url-pattern>
 	</servlet-mapping>
 
-
+	<servlet-mapping>
+		<servlet-name>budget</servlet-name>
+		<url-pattern> /budget </url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>budget</servlet-name>
+		<servlet-class>com.book.servlets.budget</servlet-class>
+	</servlet>
 	<servlet>
 		<servlet-name>validation</servlet-name>
 		<servlet-class>com.book.servlets.validation</servlet-class>

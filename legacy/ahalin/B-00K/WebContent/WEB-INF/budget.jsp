@@ -34,11 +34,35 @@
 			<section>
 				<p>
 				<form method="post" action="budget">
-					Votre budget actuel est : <br>
+					Votre budget actuel est : ${budget.montant} <br>
 					<br> <label for="url">Budget </label>
 					 <input type="text" id="budget" name="budget" value="" size="20" maxlength="20" /> <br />
 					<input type="submit" value="Valider" class="sansLabel" /> <br />
 				</form>
+				</p>
+				<p>
+								<TABLE BORDER="1" >  
+		
+						<%-- Print the titles of the columns --%>
+						<TR>	
+ 							<TH> Montant </TH> 
+
+ 							
+ 							
+						</TR> 
+		
+
+						<%-- Print the data --%>
+						<c:forEach var="budgetelm" items="${budgetA}">
+							<TR> 	
+								<td> <c:out value="${budgetelm.montant}"/> </td>
+							
+
+
+      					
+  							</TR>
+						</c:forEach>
+				</TABLE>
 				</p>
 			</section>
 		</article>

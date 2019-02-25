@@ -26,7 +26,7 @@
 			<ul class="nav">
 				<li><a href="livre">Nouvelle Commande</a></li>
 				<li><a href="#">Gestion des commandes</a></li>
-				<li> <a href="budget">Gestion du budget</a></li>
+				
 				<li><a href="#">Lien trois</a></li>
 			</ul>
 

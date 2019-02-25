@@ -31,8 +31,8 @@ public class budget extends HttpServlet
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{	
 		HibernateUtils.initDB();
-		this.getServletContext().getRequestDispatcher(VUE1).forward(request, response);
-	}
+			this.getServletContext().getRequestDispatcher(VUE1).forward(request, response);
+		}
 	
 	
 	/**

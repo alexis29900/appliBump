@@ -41,7 +41,7 @@ public class Mail
 	private static Session getSession()
 	{
 		// Username and password of gmail account.
-		final String username = "bumpbibli@gmail.com";
+		final String username = "bumpbibli";
 		final String password = "Indianhunk01";
  
 		// Properties of the session.
@@ -51,7 +51,7 @@ public class Mail
 		props.put("mail.smtp.host", "smtp.gmail.com");
 		props.put("mail.smtp.port", "587");
 		props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
- 
+   
 		Authenticator authenticator = new Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
 				return new PasswordAuthentication(username, password);

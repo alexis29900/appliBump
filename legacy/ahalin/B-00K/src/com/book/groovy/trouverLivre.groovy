@@ -72,6 +72,7 @@ connection.setRequestProperty( 'User-Agent', 'groovy-2.4.4' )
 connection.setRequestProperty( 'X-API-KEY', 'hSaxMghEkuydI5zm9ULa3tnDigXaOcl7hnjGg8cc' )
 def response=connection.inputStream.text
 def jsonSlurper = new JsonSlurper()
+println(response)
 def object = jsonSlurper.parseText(response)
 // get the response code - automatically sends the request
 	def newBook = new Livre(isbn10: object.book.isbn,

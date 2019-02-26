@@ -13,7 +13,7 @@ import com.book.entities.Budget;
 import java.text.SimpleDateFormat;  
 import java.util.Date;  
 public class H2User {
-	public static List getBudget()
+	public static List getUser()
 	{
 		Connection connection = null;
 		Statement statement = null;
@@ -23,7 +23,7 @@ public class H2User {
 
         	Session s = HibernateUtils.getSession();
 
-    		Query query = s.createQuery("FROM Budget"); 
+    		Query query = s.createQuery("FROM USER"); 
     		
     		liste = query.list();
     		for (Budget e : liste) {
@@ -42,33 +42,9 @@ return liste;
 		
 		
 	}
-	public static Budget getLastBudget()
-	{
-		Budget b=null;
-		
-		try
-		{
 
-        	Session s = HibernateUtils.getSession();
-
-    		Query query = s.createQuery("select montant FROM Budget order by id desc limit 1"); 
-    		
-    		List liste = query.list();
-    		b=new Budget();
-    		b.setMontant((Integer) liste.get(0));
-    		
-
-       
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
-
-		return b;
-	}
 	
-	public static void insertBudget(Budget budget)
+	public static void insertUser(String username,String password,String phone,String email)
 	{
 		Connection connection = null;
 		Statement statement = null;
@@ -81,7 +57,8 @@ return liste;
 			Class.forName("org.h2.Driver");  
         	connection = DriverManager.getConnection("jdbc:h2:~/bdd_b00k;IFEXISTS=TRUE", "root", "root");  
             statement = connection.createStatement();  
-            statement.executeUpdate("insert into budget (Montant,Date) values ("+budget.getMontant().toString() + ",'" +date.toString()+"')");
+            statement.execute("create table if not exists USER(id int(11) not null auto_increment, password varchar(1000),email varchar(1000), phone varchar(1000))");
+            statement.executeUpdate("insert into USER (user,password,phone,email) values ('"+username.toString() + "','" +password+"','"+phone+"','"+email+"')");
             
        
 		}

@@ -265,6 +265,8 @@ public class HibernateUtils
         	connection = DriverManager.getConnection("jdbc:h2:~/bdd_b00k", "root", "root");  
             statement = connection.createStatement();  
             statement.execute("create table if not exists detail(NDetail int(11) not null auto_increment, NLivre int(11) not null, Quantite int(11) not null, CoteBump varchar(45) not null, Prix int(11) not null, Primary Key (NDetail), constraint `Detail-Livre` FOREIGN KEY (`NLivre`) REFERENCES `livre` (`NLivre`) ON DELETE NO ACTION ON UPDATE NO ACTION )");
+            statement.execute("create table if not exists USER(id int(11) not null auto_increment, password varchar(1000),email varchar(1000), phone varchar(1000))");
+
         }
         catch (Exception e)
         {  

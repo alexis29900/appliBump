@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.book.hibernate.H2User;
+
 /**
  * Servlet implementation class LoginServlet
  */
@@ -28,10 +30,13 @@ public class subscribe extends HttpServlet{
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		H2User a=new H2User();
 		String user = request.getParameter("user");
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
 		String phone = request.getParameter("phone");
+		a.insertUser(user, password, phone, email);
+		a.getUser();
 		System.out.println(user+phone+email+password);
 	}
 

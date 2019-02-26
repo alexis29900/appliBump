@@ -72,6 +72,11 @@ public class livre extends HttpServlet
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		// get request parameters for userID and password
+		String user = request.getParameter("user");
+		String pwd = request.getParameter("pwd");
+		System.out.println(user);
+		System.out.println(pwd);
 		// Takes input data from form.
 		formulaireIsbn form = new formulaireIsbn();
 		Livre livre = form.inscrireLivre(request);

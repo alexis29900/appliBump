@@ -16,18 +16,14 @@ import javax.servlet.http.HttpSession;
  * Servlet implementation class LoginServlet
  */
 @SuppressWarnings("serial")
-public class logon extends HttpServlet{
+public class loginValid extends HttpServlet{
 
 	private final String userID = "admin";
 	private final String password = "password";
 	private final String VUE1="/WEB-INF/logon.jsp";
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		System.out.println("get");
-		String user = request.getParameter("user");
-		String pwd = request.getParameter("pwd");
-		System.out.println(user);
-		System.out.println(pwd);
+
 		this.getServletContext().getRequestDispatcher(VUE1).forward(request, response);
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException

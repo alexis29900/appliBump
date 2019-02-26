@@ -67,30 +67,25 @@
 		<role-name>admin</role-name>
 	</security-role>
 
-	<login-config>
-		<auth-method>BASIC</auth-method>
-		<realm-name>my login</realm-name>
-	</login-config>
+
 	<servlet>
 		<description>Landing Page for Admin GUI</description>
 		<display-name>StartServlet</display-name>
 		<servlet-name>StartServlet</servlet-name>
 		<servlet-class>StartServlet</servlet-class>
 	</servlet>
-	<security-constraint>
-		<web-resource-collection>
-			<web-resource-name>Private</web-resource-name>
-			<description>Matches all pages</description>
-			<url-pattern>/*</url-pattern>
-		</web-resource-collection>
-		<auth-constraint>
-			<role-name>admin</role-name>
-		</auth-constraint>
-	</security-constraint>
-	<servlet-mapping>
-		<servlet-name>StartServlet</servlet-name>
-		<url-pattern>/index.html</url-pattern>
-	</servlet-mapping>
+<security-constraint>
+    <web-resource-collection>
+      <web-resource-name>AllStaff</web-resource-name>
+      <url-pattern>/acceuil</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>technician</role-name>
+      <role-name>manager</role-name>
+    </auth-constraint>
+</security-constraint>
+
+
 	<servlet>
 		<servlet-name>gestion</servlet-name>
 		<servlet-class>com.book.servlets.gestion</servlet-class>
@@ -101,7 +96,15 @@
 		<url-pattern> /gestion </url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>logon</servlet-name>
+		<servlet-class>com.book.servlets.logon</servlet-class>
+	</servlet>
 
+	<servlet-mapping>
+		<servlet-name>logon</servlet-name>
+		<url-pattern> /logon </url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>traitementCommande</servlet-name>
@@ -111,8 +114,15 @@
 	<servlet-mapping>
 		<servlet-name>traitementCommande</servlet-name>
 		<url-pattern> /traitementCommande </url-pattern>
-	</servlet-mapping>
 
+	</servlet-mapping>
+  <login-config>
+     <auth-method>FORM</auth-method>
+     <form-login-config>
+        <form-login-page>/logon</form-login-page>
+        <form-error-page>/logon</form-error-page>
+     </form-login-config>
+  </login-config>
 
 
 	<resource-ref>
@@ -122,14 +132,5 @@
 		<res-auth>Container</res-auth>
 		<res-sharing-scope>Shareable</res-sharing-scope>
 	</resource-ref>
-	<security-constraint>
-		<web-resource-collection>
-			<web-resource-name>Private</web-resource-name>
-			<description>Matches all pages</description>
-			<url-pattern>/*</url-pattern>
-		</web-resource-collection>
-		<auth-constraint>
-			<role-name>admin</role-name>
-		</auth-constraint>
-	</security-constraint>
+
 </web-app>

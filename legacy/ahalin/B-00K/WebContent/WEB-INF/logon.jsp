@@ -12,7 +12,7 @@
 	<body>
 	<form method=post action="loginValid">
 		<input type="text" id="user" name="user" value="" size="20" maxlength="20" /> 
-		<input type="text" id="pwd" name="isbn" value="" size="20" maxlength="20" /> 
+		<input type="text" id="pwd" name="pwd" value="" size="20" maxlength="20" /> 
 		<input type="submit" value="Valider" class="sansLabel" />
 	</form>
 		

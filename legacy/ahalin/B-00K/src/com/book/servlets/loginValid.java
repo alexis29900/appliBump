@@ -36,13 +36,16 @@ public class loginValid extends HttpServlet{
 		if(userID.equals(user) && password.equals(pwd)){
 			System.out.println("ok");
 			HttpSession session = request.getSession();
-			session.setAttribute("user", "Pankaj");
+			session.setAttribute("user", "admin");
+			session.setAttribute("userRole","admin");
 			//setting session to expiry in 30 mins
 			session.setMaxInactiveInterval(30*60);
+
+			response.setStatus(HttpServletResponse.SC_ACCEPTED);
 			Cookie userName = new Cookie("user", user);
 			userName.setMaxAge(30*60);
 			response.addCookie(userName);
-			response.sendRedirect("LoginSuccess.jsp");
+			response.sendRedirect("/B-00K/acceuil");
 		}else{
 			System.out.println("ko");
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/logon.jsp");

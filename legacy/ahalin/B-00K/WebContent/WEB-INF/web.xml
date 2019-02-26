@@ -108,7 +108,14 @@
 		<servlet-name>logon</servlet-name>
 		<servlet-class>com.book.servlets.logon</servlet-class>
 	</servlet>
-
+	<servlet-mapping>
+		<servlet-name>loginValid</servlet-name>
+		<url-pattern> /loginValid </url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>signUp</servlet-name>
+		<servlet-class>com.book.servlets.signUp</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>logon</servlet-name>
 		<url-pattern> /logon </url-pattern>

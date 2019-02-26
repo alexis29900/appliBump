@@ -55,10 +55,14 @@
 	<servlet-mapping>
 		<servlet-name>accueil</servlet-name>
 		<url-pattern> /accueil </url-pattern>
+		
 	</servlet-mapping>
 
 
-
+<login-config> 
+    <auth-method>BASIC</auth-method> 
+    <realm-name>Editor Login</realm-name> 
+</login-config>
 	<servlet>
 		<servlet-name>gestion</servlet-name>
 		<servlet-class>com.book.servlets.gestion</servlet-class>
@@ -81,7 +85,12 @@
 		<url-pattern> /traitementCommande </url-pattern>
 	</servlet-mapping>
 	
-	
+	<login-config>
+            <auth-method>FORM</auth-method>
+         <form-login-config>
+                  <form-login-page>/loginform.jsp</form-login-page>
+          </form-login-config>
+     </login-config>
 	
 	<resource-ref>
 		<description> Server Mail </description>

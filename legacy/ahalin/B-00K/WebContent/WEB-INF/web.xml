@@ -59,10 +59,13 @@
 	</servlet-mapping>
 
 
-<login-config> 
-    <auth-method>BASIC</auth-method> 
-    <realm-name>Editor Login</realm-name> 
-</login-config>
+      <login-config>
+            <auth-method>FORM</auth-method>
+         <form-login-config>
+                  <form-login-page>/logon.jsp</form-login-page>
+                 <form-error-page>/logonError.jsp</form-error-page>
+          </form-login-config>
+     </login-config>
 	<servlet>
 		<servlet-name>gestion</servlet-name>
 		<servlet-class>com.book.servlets.gestion</servlet-class>
@@ -84,13 +87,7 @@
 		<servlet-name> traitementCommande </servlet-name>
 		<url-pattern> /traitementCommande </url-pattern>
 	</servlet-mapping>
-	
-	<login-config>
-            <auth-method>FORM</auth-method>
-         <form-login-config>
-                  <form-login-page>/loginform.jsp</form-login-page>
-          </form-login-config>
-     </login-config>
+
 	
 	<resource-ref>
 		<description> Server Mail </description>
@@ -99,5 +96,14 @@
 		<res-auth>Container</res-auth>
 		<res-sharing-scope>Shareable</res-sharing-scope>
 	</resource-ref>
-	
+	<security-constraint>
+  <web-resource-collection>
+    <web-resource-name>Private</web-resource-name>
+    <description>Matches all pages</description>
+    <url-pattern>/*</url-pattern>
+  </web-resource-collection>
+  <auth-constraint>
+     <role-name>admin</role-name>
+  </auth-constraint>
+</security-constraint>
 </web-app>

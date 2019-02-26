@@ -28,32 +28,11 @@ public class subscribe extends HttpServlet{
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		// get request parameters for userID and password
 		String user = request.getParameter("user");
-		String pwd = request.getParameter("pwd");
-		System.out.println(user);
-		System.out.println(pwd);
-		if(userID.equals(user) && password.equals(pwd)){
-			System.out.println("ok");
-			HttpSession session = request.getSession();
-			session.setAttribute("user", "admin");
-			session.setAttribute("userRole","admin");
-			//setting session to expiry in 30 mins
-			session.setMaxInactiveInterval(30*60);
-
-			response.setStatus(HttpServletResponse.SC_ACCEPTED);
-			Cookie userName = new Cookie("user", user);
-			userName.setMaxAge(30*60);
-			response.addCookie(userName);
-			response.sendRedirect("/B-00K/acceuil");
-		}else{
-			System.out.println("ko");
-			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/logon.jsp");
-			PrintWriter out= response.getWriter();
-			out.println("<font color=red>Either user name or password is wrong.</font>");
-			rd.include(request, response);
-		}
-
+		String password = request.getParameter("password");
+		String email = request.getParameter("email");
+		String phone = request.getParameter("phone");
+		System.out.println(user+phone+email+password);
 	}
 
 }

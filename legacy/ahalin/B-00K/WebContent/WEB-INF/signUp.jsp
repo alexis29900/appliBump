@@ -25,18 +25,18 @@
 	<p class="divider-text">
         <span class="bg-light">OR</span>
     </p>
-	<form>
+	<form action="subscribe" method="post">
 	<div class="form-group input-group">
-		<div class="input-group-prepend">
+		<div class="input-group-prepend" >
 		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
 		 </div>
-        <input name="" class="form-control" placeholder="Full name" type="text">
+        <input  class="form-control" placeholder="Full name" type="text" id="user" name="user">
     </div> <!-- form-group// -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
 		 </div>
-        <input name="" class="form-control" placeholder="Email address" type="email">
+        <input  class="form-control" placeholder="Email address" type="email" id="email" name="email">
     </div> <!-- form-group// -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
@@ -48,7 +48,7 @@
 		    <option value="2">+198</option>
 		    <option value="3">+701</option>
 		</select>
-    	<input name="" class="form-control" placeholder="Phone number" type="text">
+    	<input  class="form-control" placeholder="Phone number" type="text" id="phone" name="phone">
     </div> <!-- form-group// -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
@@ -65,7 +65,7 @@
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 		</div>
-        <input class="form-control" placeholder="Create password" type="password">
+        <input class="form-control" placeholder="Create password" type="password" id="password" name="password">
     </div> <!-- form-group// -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">

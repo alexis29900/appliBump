@@ -117,12 +117,12 @@
 		<servlet-class>com.book.servlets.signUp</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>signUp</servlet-name>
-		<url-pattern> /signUp </url-pattern>
+		<servlet-name>subscribe</servlet-name>
+		<url-pattern> /subscribe </url-pattern>
 	</servlet-mapping>
 	<servlet>
-		<servlet-name>subsribe</servlet-name>
-		<servlet-class>com.book.servlets.subsribe</servlet-class>
+		<servlet-name>subscribe</servlet-name>
+		<servlet-class>com.book.servlets.subscribe</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>logon</servlet-name>

@@ -74,6 +74,7 @@
 		<servlet-name>StartServlet</servlet-name>
 		<servlet-class>StartServlet</servlet-class>
 	</servlet>
+
 <security-constraint>
     <web-resource-collection>
       <web-resource-name>AllStaff</web-resource-name>
@@ -84,7 +85,7 @@
       <role-name>manager</role-name>
     </auth-constraint>
 </security-constraint>
-
+ 
 
 	<servlet>
 		<servlet-name>gestion</servlet-name>

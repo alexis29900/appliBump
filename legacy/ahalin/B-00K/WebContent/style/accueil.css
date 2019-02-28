@@ -80,14 +80,16 @@ header {
 
 */
 .sidebar1 {
-	float: left;
+	text-align: left;
 	width: 180px;
-	background-color: #EADCAE;
-	padding-bottom: 10px;
+	background-color: white;
+	display: inline;
+
 }
 
 .content {
-	padding: 10px 0;
+	padding: 10px 100;
+	margin-left:10px;
 	width: 600px;
 	float: left;
 }
@@ -173,6 +175,7 @@ header,section,footer,aside,article,figure {
 
 .validerCommande
 {
+	
 	background-image: url("../images/validation.jpg");
 	background-repeat:no-repeat;
 	background-position: center;
